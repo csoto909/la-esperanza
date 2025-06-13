@@ -12,29 +12,31 @@
 </head>
 <body>
     <!-- Navegación -->
-    <header>
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="ph ph-radio"></i>
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="ph ph-radio"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Radio La Esperanza</h1>
+                        <p>La Voz de Nuestra Institución</p>
+                    </div>
                 </div>
-                <div class="logo-text">
-                    <h1>Radio La Esperanza</h1>
-                    <p>La Voz de Nuestra Institución</p>
-                </div>
+                <nav class="nav">
+                    <input type="checkbox" id="menu-toggle">
+                    <label for="menu-toggle" class="menu-icon">
+                        <i class="ph ph-list"></i>
+                    </label>
+                    <ul class="menu">
+                        <li><a href="#" class="active">Inicio</a></li>
+                        <li><a href="#">Programación</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Institucional</a></li>
+                    </ul>
+                </nav>
             </div>
-            <nav>
-                <input type="checkbox" id="menu-toggle">
-                <label for="menu-toggle" class="menu-icon">
-                    <i class="ph ph-list"></i>
-                </label>
-                <ul class="menu">
-                    <li><a href="#" class="active">Inicio</a></li>
-                    <li><a href="#">Programación</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Institucional</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
 
@@ -81,7 +83,7 @@
                     <div class="player-container">
                         <h3>Escucha nuestro jingle</h3>
                         <audio controls>
-                            <source src="#" type="audio/mpeg">
+                            <source src="assets/audio/Radio la esperanza.mp3" type="audio/mpeg">
                             Tu navegador no soporta el elemento de audio.
                         </audio>
                         <div class="player-icon">
@@ -108,7 +110,7 @@
             <div class="programs">
                 <div class="program">
                     <div class="program-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="Programa Despertar Estudiantil">
+                        <img src="assets/img/Gemini_Generated_Image_x44efnx44efnx44e.png" alt="La ventana informativa" class="img-placeholder">
                     </div>
                     <div class="program-content">
                         <h3>Despertar Estudiantil</h3>
@@ -118,7 +120,7 @@
                 </div>
                 <div class="program">
                     <div class="program-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="Programa Recreo Musical">
+                       <img src="assets/img/Gemini_Generated_Image_hw7p6bhw7p6bhw7p.png" alt="La ventana informativa" class="img-placeholder">
                     </div>
                     <div class="program-content">
                         <h3>Recreo Sin Límites</h3>
@@ -128,7 +130,7 @@
                 </div>
                 <div class="program">
                     <div class="program-image">
-                        <img src="/placeholder.svg?height=200&width=300" alt="Programa Mentes Curiosas">
+                        <img src="assets/img/Gemini_Generated_Image_f7bmgef7bmgef7bm.png" alt="La ventana informativa" class="img-placeholder">
                     </div>
                     <div class="program-content">
                         <h3>Mentes Curiosas</h3>
@@ -154,7 +156,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="/placeholder.svg?height=60&width=60" alt="Director">
+                            <img src="https://es.vidnoz.com/img/ai-talking-avatar/tips-default.png" alt="Director" class="avatar">
                         </div>
                         <div class="author-info">
                             <h4>Prof. Martínez</h4>
@@ -168,7 +170,7 @@
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="/placeholder.svg?height=60&width=60" alt="Ex-alumna">
+                            <img src="https://st2.depositphotos.com/2783505/7767/i/450/depositphotos_77676472-stock-photo-portrait-of-a-blonde-german.jpg" alt="Director" class="avatar">
                         </div>
                         <div class="author-info">
                             <h4>Carolina Méndez</h4>
@@ -178,15 +180,15 @@
                 </div>
                 <div class="testimonial">
                     <div class="testimonial-content">
-                        <p>"Como docente, he visto cómo la radio ha mejorado la expresión oral y escrita de los estudiantes. Es una herramienta pedagógica extraordinaria."</p>
+                        <p>"Como docente, he visto cómo la radio escolar transforma la manera en que los estudiantes se comunican y expresan, los motiva a investigar, indagar y a pulir sus guiones."</p>
                     </div>
                     <div class="testimonial-author">
                         <div class="author-image">
-                            <img src="/placeholder.svg?height=60&width=60" alt="Profesora de Lengua">
+                             <img src="https://c.pxhere.com/images/c6/91/441b53afa0a69dc4acfbb01dd205-1447095.jpg!d" alt="Director" class="avatar">
                         </div>
                         <div class="author-info">
                             <h4>Prof. Sánchez</h4>
-                            <p>Profesora de Lengua</p>
+                            <p>Profesor de Lengua</p>
                         </div>
                     </div>
                 </div>
@@ -247,11 +249,25 @@
     <!-- Script para el efecto de scroll en la navegación -->
     <script>
         window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
+            const header = document.querySelector('.header');
             if (window.scrollY > 50) {
                 header.classList.add('header-scrolled');
             } else {
                 header.classList.remove('header-scrolled');
+            }
+        });
+
+        // Script para cerrar el menú móvil al hacer clic en un enlace
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu-toggle').checked = false;
+            });
+        });
+
+        // Asegurarse de que el menú móvil se cierre al hacer scroll
+        window.addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                document.getElementById('menu-toggle').checked = false;
             }
         });
     </script>

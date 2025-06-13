@@ -130,9 +130,9 @@ h6 {
   box-shadow: 0 10px 25px rgba(0, 165, 81, 0.35);
 }
 
-/* Header - Glassmorphism Effect */
-header {
-  background-color: rgba(255, 255, 255, 0.7);
+/* Header y Navegación */
+.header {
+  background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
@@ -142,12 +142,13 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 18px 0;
+  padding: 10px 0;
   transition: all 0.4s ease;
-  height: var(--header-height);
+  height: auto;
+  min-height: var(--header-height);
 }
 
-header::before {
+.header::before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -157,7 +158,7 @@ header::before {
   background: linear-gradient(to right, transparent, rgba(0, 165, 81, 0.3), rgba(0, 173, 241, 0.3), transparent);
 }
 
-header .container {
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -184,9 +185,7 @@ header .container {
   font-size: 24px;
   font-weight: 800;
   margin: 0;
-  background: linear-gradient(135deg, var(--primary-color) 20%, var(--secondary-color) 80%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--dark-color);
   letter-spacing: -0.01em;
 }
 
@@ -199,17 +198,17 @@ header .container {
   font-weight: 500;
 }
 
-/* Navegación con Glassmorphism */
-nav {
+/* Navegación */
+.nav {
   position: relative;
 }
 
-nav .menu {
+.menu {
   display: flex;
   gap: 36px;
 }
 
-nav .menu li a {
+.menu li a {
   font-weight: 600;
   font-size: 15px;
   color: var(--dark-color);
@@ -218,7 +217,7 @@ nav .menu li a {
   transition: color 0.3s ease;
 }
 
-nav .menu li a::after {
+.menu li a::after {
   content: "";
   position: absolute;
   bottom: -6px;
@@ -230,13 +229,13 @@ nav .menu li a::after {
   opacity: 0;
 }
 
-nav .menu li a:hover,
-nav .menu li a.active {
+.menu li a:hover,
+.menu li a.active {
   color: var(--primary-color);
 }
 
-nav .menu li a:hover::after,
-nav .menu li a.active::after {
+.menu li a:hover::after,
+.menu li a.active::after {
   width: 100%;
   opacity: 1;
 }
@@ -260,16 +259,16 @@ nav .menu li a.active::after {
     z-index: 1001;
   }
 
-  nav {
+  .nav {
     position: static;
   }
 
-  nav .menu {
+  .menu {
     position: fixed;
     top: var(--header-height);
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     flex-direction: column;
@@ -285,12 +284,17 @@ nav .menu li a.active::after {
     margin: 0;
   }
 
+  .header-scrolled + .menu,
+  .header-scrolled .menu {
+    top: 60px;
+  }
+
   #menu-toggle:checked ~ .menu {
     height: auto;
     padding: 10px 0;
   }
 
-  nav .menu li {
+  .menu li {
     opacity: 0;
     transform: translateY(-20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
@@ -304,15 +308,23 @@ nav .menu li a.active::after {
     transition-delay: 0.1s;
   }
 
-  nav .menu li a {
+  .menu li a {
     display: block;
     padding: 15px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
 
-  nav .menu li:last-child a {
+  .menu li:last-child a {
     border-bottom: none;
   }
+}
+
+/* Efecto de scroll para la navegación */
+.header-scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  padding: 5px 0;
+  min-height: 60px;
 }
 
 /* Hero Section */
@@ -323,7 +335,14 @@ nav .menu li a.active::after {
   padding: 140px 0 120px;
   text-align: center;
   overflow: hidden;
-  margin-top: 0; /* Eliminado el margin-top negativo */
+  margin-top: 0;
+}
+
+/* Ajustar el hero para que no se superponga con el menú móvil */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+  }
 }
 
 .hero::before {
@@ -1070,19 +1089,8 @@ footer::before {
   }
 }
 
-/* Scroll Effect para la navegación */
-.header-scrolled {
-  background-color: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-  padding: 12px 0;
-}
-
 /* Responsive Footer */
 @media (max-width: 992px) {
-  :root {
-    --header-height: 70px;
-  }
-
   .hero-content h2 {
     font-size: 3rem;
   }
@@ -1116,65 +1124,9 @@ footer::before {
 }
 
 @media (max-width: 768px) {
-  :root {
-    --header-height: 65px;
-  }
-
-  /* Navegación móvil con glassmorphism */
-  .menu-icon {
-    display: block;
-    font-size: 26px;
-    cursor: pointer;
-    color: var(--primary-color);
-    z-index: 1001;
-  }
-
-  /* Estilo para el checkbox oculto */
-  #menu-toggle {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-  }
-
-  /* Menú móvil */
-  nav .menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    flex-direction: column;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
-    z-index: 1000;
-    gap: 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  }
-
-  /* Cuando el checkbox está marcado, mostrar el menú */
-  #menu-toggle:checked ~ .menu {
-    max-height: 300px;
-  }
-
-  nav .menu li {
-    margin: 0;
-    padding: 15px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-
-  nav .menu li:last-child {
-    border-bottom: none;
-  }
-
-  nav .menu li a::after {
-    display: none;
+  /* Header y navegación */
+  .header {
+    height: 65px;
   }
 
   /* Hero Section */
@@ -1200,10 +1152,85 @@ footer::before {
     font-size: 2.2rem;
   }
 
-  /* Footer */
+  /* Audio Banner - Ajustes para móvil */
+  .audio-banner {
+    padding: 60px 0;
+  }
+
+  .player-container {
+    padding: 25px 20px;
+  }
+
+  .player-container h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .player-icon {
+    font-size: 100px;
+    bottom: -20px;
+    right: -20px;
+  }
+
+  .banner-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .banner-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Testimonios - Ajustes para móvil */
+  .testimonials {
+    padding: 70px 0;
+  }
+
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 40px;
+  }
+
+  .testimonial {
+    padding: 25px 20px;
+  }
+
+  .testimonial::before {
+    font-size: 40px;
+    top: 15px;
+    left: 15px;
+  }
+
+  .testimonial-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .author-image {
+    width: 50px;
+    height: 50px;
+    border-width: 2px;
+  }
+
+  .author-info h4 {
+    font-size: 1rem;
+  }
+
+  .author-info p {
+    font-size: 0.8rem;
+  }
+
+  /* Footer - Ajustes para móvil */
+  footer {
+    padding: 60px 0 20px;
+  }
+
   .footer-content {
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
+    margin-bottom: 40px;
   }
 
   .footer-info {
@@ -1219,6 +1246,26 @@ footer::before {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .footer-logo .logo-icon {
+    font-size: 35px;
+    margin-bottom: 12px;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+  }
+
+  .footer-social {
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-social h3 {
+    margin-bottom: 20px;
   }
 
   .footer-social h3::after {
@@ -1226,9 +1273,13 @@ footer::before {
     transform: translateX(-50%);
   }
 
+  .social-icons {
+    justify-content: center;
+  }
+
   .footer-nav {
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
     text-align: center;
   }
@@ -1241,6 +1292,11 @@ footer::before {
     align-items: center;
   }
 
+  .footer-links h3,
+  .footer-contact h3 {
+    margin-bottom: 20px;
+  }
+
   .footer-links h3::after,
   .footer-contact h3::after {
     left: 50%;
@@ -1251,40 +1307,35 @@ footer::before {
     align-items: center;
   }
 
+  .footer-contact p {
+    justify-content: center;
+  }
+
   .footer-bottom {
     flex-direction: column;
     text-align: center;
+    padding-top: 20px;
+    gap: 15px;
   }
 
   .footer-bottom-links {
     justify-content: center;
-  }
-
-  .audio-banner {
-    padding: 70px 0;
-  }
-
-  .player-container {
-    padding: 30px 20px;
-  }
-
-  .player-container h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-  }
-
-  .banner-text h2 {
-    font-size: 1.8rem;
-  }
-
-  .banner-text p {
-    font-size: 1rem;
+    gap: 20px;
+    flex-wrap: wrap;
   }
 }
 
 @media (max-width: 480px) {
-  :root {
-    --header-height: 60px;
+  .header {
+    height: 60px;
+  }
+
+  .logo-text h1 {
+    font-size: 20px;
+  }
+
+  .logo-text p {
+    font-size: 10px;
   }
 
   .hero {
@@ -1299,23 +1350,86 @@ footer::before {
     font-size: 1.9rem;
   }
 
-  .banner-text h2 {
-    font-size: 1.9rem;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
+  /* Audio Banner - Ajustes adicionales para pantallas muy pequeñas */
   .audio-banner {
     padding: 50px 0;
   }
 
-  .audio-banner-content {
-    gap: 30px;
+  .player-container {
+    padding: 20px 15px;
   }
 
-  .player-container {
-    padding: 25px 15px;
+  .player-container h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
   }
+
+  .player-container audio {
+    margin-bottom: 10px;
+  }
+
+  .banner-text h2 {
+    font-size: 1.6rem;
+    padding-bottom: 12px;
+  }
+
+  .banner-text p {
+    font-size: 0.9rem;
+  }
+
+  /* Testimonios - Ajustes adicionales para pantallas muy pequeñas */
+  .testimonial {
+    padding: 20px 15px;
+  }
+
+  .testimonial-content {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-author {
+    gap: 12px;
+  }
+
+  .author-image {
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Footer - Ajustes adicionales para pantallas muy pequeñas */
+  .footer-logo .logo-icon {
+    font-size: 30px;
+  }
+
+  .footer-logo h2 {
+    font-size: 1.6rem;
+  }
+
+  .social-icons {
+    gap: 12px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+  }
+
+  .footer-links ul {
+    gap: 10px;
+  }
+
+  .footer-contact p {
+    font-size: 0.9rem;
+    gap: 8px;
+  }
+
+  .footer-bottom p,
+  .footer-bottom-links a {
+    font-size: 0.85rem;
+  }
+}
+
+.img-placeholder {
+  width: 300px;
+  height: 200px;
+  object-fit: cover; /* o 'contain' si no quieres recorte */
 }
