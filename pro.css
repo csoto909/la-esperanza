@@ -1,0 +1,138 @@
+/* Estilos específicos para la página de programación */
+
+/* Contenido de Programación */
+.programacion-content {
+  padding: 30px 0 80px;
+  background-color: var(--gray-100);
+  position: relative;
+}
+
+.programacion-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a551' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Título de la página */
+.page-title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.page-title h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.page-title p {
+  font-size: 1.2rem;
+  color: var(--dark-color-light);
+}
+
+/* Contenedor del iframe */
+.iframe-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Proporción 16:9 */
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.iframe-container:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-5px);
+}
+
+/* Estilo del iframe */
+.iframe-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: var(--gray-200);
+}
+
+/* Versión alternativa para iframe más alto */
+.iframe-container.alto {
+  padding-bottom: 75%; /* Proporción 4:3 para un iframe más alto */
+}
+
+/* Versión alternativa para iframe de altura completa */
+.iframe-container.completo {
+  padding-bottom: 100%; /* Iframe cuadrado */
+}
+
+/* Versión alternativa para iframe de altura personalizada */
+.iframe-container.personalizado {
+  padding-bottom: 600px; /* Altura fija en píxeles */
+  height: auto;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .iframe-container {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .programacion-content {
+    padding: 20px 0 60px;
+  }
+
+  .page-title h2 {
+    font-size: 2.2rem;
+  }
+
+  .page-title p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .programacion-content {
+    padding: 15px 0 50px;
+  }
+
+  .page-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-title p {
+    font-size: 1rem;
+  }
+
+  /* Para dispositivos muy pequeños, aumentamos la altura del iframe */
+  .iframe-container {
+    padding-bottom: 75%;
+  }
+}
