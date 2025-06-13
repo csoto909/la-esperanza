@@ -1,0 +1,351 @@
+/* Estilos específicos para la página de nosotros */
+
+/* Contenido del Equipo */
+.equipo-content {
+  padding: 30px 0 80px;
+  background-color: var(--gray-100);
+  position: relative;
+}
+
+.equipo-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a551' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Título de la página */
+.page-title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+.page-title h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.page-title p {
+  font-size: 1.2rem;
+  color: var(--dark-color-light);
+}
+
+/* Imagen del equipo */
+.equipo-imagen {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 60px;
+  box-shadow: var(--box-shadow);
+}
+
+.equipo-imagen img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.equipo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  padding: 40px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.equipo-quote {
+  text-align: center;
+  color: var(--white);
+  max-width: 800px;
+}
+
+.equipo-quote i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.equipo-quote blockquote {
+  font-size: 1.8rem;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid de miembros del equipo */
+.miembros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+/* Tarjeta de miembro */
+.miembro-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.miembro-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.miembro-avatar {
+  height: 280px;
+  position: relative;
+  overflow: hidden;
+}
+
+.miembro-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.miembro-card:hover .miembro-avatar img {
+  transform: scale(1.05);
+}
+
+.miembro-info {
+  padding: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.miembro-info h3 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: var(--dark-color);
+}
+
+.miembro-cargo {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--gray-300);
+  width: 100%;
+}
+
+.miembro-info p {
+  color: var(--dark-color-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* Sección unirse al equipo */
+.unirse-equipo {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  border-radius: var(--border-radius);
+  padding: 50px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.unirse-equipo::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.1;
+}
+
+.unirse-content {
+  flex: 1;
+  z-index: 1;
+}
+
+.unirse-content h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  color: var(--white);
+}
+
+.unirse-content p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  opacity: 0.9;
+  max-width: 600px;
+}
+
+/* Nuevo estilo para el botón de contacto */
+.btn-contacto {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background-color: var(--accent-color);
+  color: var(--white);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.3);
+}
+
+.btn-contacto:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+}
+
+.unirse-icon {
+  font-size: 8rem;
+  opacity: 0.2;
+  color: var(--white);
+  margin-right: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .miembros-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+  }
+
+  .unirse-equipo {
+    padding: 40px 30px;
+  }
+
+  .unirse-content h3 {
+    font-size: 1.8rem;
+  }
+
+  .unirse-content p {
+    font-size: 1rem;
+  }
+
+  .unirse-icon {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .equipo-content {
+    padding: 20px 0 60px;
+  }
+
+  .page-title h2 {
+    font-size: 2.2rem;
+  }
+
+  .page-title p {
+    font-size: 1.1rem;
+  }
+
+  .equipo-imagen {
+    margin-bottom: 40px;
+  }
+
+  .equipo-quote blockquote {
+    font-size: 1.4rem;
+  }
+
+  .miembros-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .unirse-equipo {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 30px 20px;
+  }
+
+  .unirse-content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .unirse-icon {
+    margin-right: 0;
+    margin-bottom: 20px;
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .equipo-content {
+    padding: 15px 0 50px;
+  }
+
+  .page-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-title p {
+    font-size: 1rem;
+  }
+
+  .equipo-overlay {
+    padding: 30px 15px 15px;
+  }
+
+  .equipo-quote blockquote {
+    font-size: 1.2rem;
+  }
+
+  .miembro-avatar {
+    height: 220px;
+  }
+
+  .miembro-info {
+    padding: 20px;
+  }
+
+  .miembro-info h3 {
+    font-size: 1.4rem;
+  }
+
+  .unirse-content h3 {
+    font-size: 1.5rem;
+  }
+}

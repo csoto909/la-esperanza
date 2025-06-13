@@ -1,0 +1,400 @@
+/* Estilos específicos para la página institucional */
+
+/* Contenido Institucional */
+.institucional-content {
+  padding: 30px 0 80px; /* Ajustado para reducir el espacio superior */
+  background-color: var(--gray-100);
+  position: relative;
+}
+
+/* Eliminamos el margin-top para evitar el espacio adicional */
+/* La navegación ya tiene position: fixed, por lo que no necesitamos este margen */
+
+.institucional-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300a551' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Título de la página */
+.page-title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px; /* Reducido de 70px a 40px */
+  position: relative;
+}
+
+.page-title h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.page-title h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.page-title p {
+  font-size: 1.2rem;
+  color: var(--dark-color-light);
+}
+
+.institucional-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+  margin-top: 30px; /* Reducido de 60px a 30px */
+}
+
+/* Escudo Section */
+.escudo-section {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+
+.escudo-container {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 40px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+}
+
+.escudo-container:hover {
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.escudo-image {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.escudo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.escudo-container h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.escudo-container h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.escudo-description {
+  text-align: left;
+  margin-top: 25px;
+}
+
+.escudo-description p {
+  color: var(--dark-color-light);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.escudo-elements {
+  list-style: none;
+  padding: 0;
+}
+
+.escudo-elements li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  color: var(--dark-color-light);
+}
+
+.escudo-elements li i {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  margin-right: 15px;
+  min-width: 24px;
+}
+
+/* Misión y Visión Section */
+.mision-vision-section {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.institucional-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  transition: var(--transition);
+  display: flex;
+  position: relative;
+}
+
+.institucional-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.card-icon {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  min-width: 120px;
+}
+
+.card-content {
+  padding: 40px;
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--dark-color);
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.card-content h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+}
+
+.card-content p {
+  color: var(--dark-color-light);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.card-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Valores */
+.valores-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.valor-item {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--gray-100);
+  border-radius: var(--border-radius-sm);
+  transition: var(--transition);
+}
+
+.valor-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+}
+
+.valor-item i {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.valor-item h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--dark-color);
+}
+
+.valor-item p {
+  font-size: 0.9rem;
+  color: var(--dark-color-light);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Cita Inspiradora */
+.quote-section {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: var(--white);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.quote-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.quote-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-content i {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  opacity: 0.2;
+}
+
+.quote-content blockquote {
+  font-size: 1.8rem;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.quote-content cite {
+  font-style: normal;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .institucional-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .escudo-section {
+    position: static;
+  }
+
+  .escudo-container {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .institucional-card {
+    flex-direction: column;
+  }
+
+  .card-icon {
+    padding: 30px;
+    min-width: auto;
+    min-height: 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .institucional-content {
+    padding: 20px 0 60px; /* Reducido para dispositivos móviles */
+  }
+
+  .page-title h2 {
+    font-size: 2.2rem;
+  }
+
+  .page-title p {
+    font-size: 1.1rem;
+  }
+
+  .card-content {
+    padding: 30px;
+  }
+
+  .card-content h3 {
+    font-size: 1.6rem;
+  }
+
+  .valores-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .quote-content blockquote {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .institucional-content {
+    padding: 15px 0 50px; /* Aún más reducido para móviles pequeños */
+  }
+
+  .page-title h2 {
+    font-size: 1.8rem;
+  }
+
+  .page-title p {
+    font-size: 1rem;
+  }
+
+  .escudo-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .escudo-container {
+    padding: 25px;
+  }
+
+  .escudo-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .card-icon {
+    min-height: 100px;
+    font-size: 2.5rem;
+  }
+
+  .card-content h3 {
+    font-size: 1.4rem;
+  }
+
+  .quote-content blockquote {
+    font-size: 1.2rem;
+  }
+}
